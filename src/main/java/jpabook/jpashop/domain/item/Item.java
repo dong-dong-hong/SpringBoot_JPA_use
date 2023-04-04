@@ -12,12 +12,10 @@ import java.util.List;
 @DiscriminatorColumn(name = "dtype")
 @Getter @Setter
 public abstract class Item {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "item_id")
     private Long id;
     private String name;
-
     private int price;
     private int stockQuantity;
 
