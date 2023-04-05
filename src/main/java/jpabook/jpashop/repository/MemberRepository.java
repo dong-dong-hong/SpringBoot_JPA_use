@@ -1,12 +1,9 @@
 package jpabook.jpashop.repository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -31,12 +28,12 @@ public class MemberRepository {
     }
 
     public List<Member> findAll() {
-        return em.createQuery("select m from Member m", Member.class)
+        return em.createQuery("select m from jpabook.jpashop.domain.Member m where m.name= : name", Member.class)
                 .getResultList();
     }
 
     public List<Member> findByName(String name) {
-        return em.createQuery("select m from Member m where m.name= : name" , Member.class)
+        return em.createQuery("select m from jpabook.jpashop.domain.Member m where m.name= : name" , Member.class)
                 .setParameter("name", name)
                 .getResultList();
     }
