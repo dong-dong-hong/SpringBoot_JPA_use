@@ -20,6 +20,7 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
+
 }
 // > 참고: 엔티티의 식별자는 id 를 사용하고 PK 컬럼명은 member_id 를 사용했다.
 // 엔티티는 타입(여기서는 Member)이 있으므로 id 필드만으로 쉽게 구분할 수 있다.

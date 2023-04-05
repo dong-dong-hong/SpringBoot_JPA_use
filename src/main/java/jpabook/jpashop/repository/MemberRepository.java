@@ -11,9 +11,12 @@ import java.util.List;
 public class MemberRepository {
     @PersistenceContext
     private EntityManager em;
-    public Long save(Member member) {
+
+//    @PersistenceUnit
+//    private EntityManagerFactory emf;
+
+    public void save(Member member) {
         em.persist(member);
-        return member.getId();
     }
     public Member findOne(Long id) {
         return em.find(Member.class, id);
@@ -30,3 +33,7 @@ public class MemberRepository {
                 .getResultList();
     }
 }
+// 기술 설명
+//@Repository : 스프링 빈으로 등록, JPA 예외를 스프링 기반 예외로 예외 변환
+//@PersistenceContext : 엔티티 메니저( EntityManager ) 주입
+//@PersistenceUnit : 엔티티 메니터 팩토리( EntityManagerFactory ) 주입
