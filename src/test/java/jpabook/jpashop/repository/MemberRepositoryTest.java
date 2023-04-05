@@ -23,13 +23,13 @@ public class MemberRepositoryTest {
     public void testMember() throws Exception {
         // given
         Member member = new Member();
-        member.setUsername("memberA");
+        member.setName("memberA");
         // when
         Long saveId = memberRepository.save(member);
         Member findMember = memberRepository.findOne(saveId);
         // then
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
-        Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
+        Assertions.assertThat(findMember.getName()).isEqualTo(member.getName());
         Assertions.assertThat(findMember).isEqualTo(member); // JPA 엔티티 동일성 보장
         System.out.println("findMember == member: " + (findMember == member));
     }
