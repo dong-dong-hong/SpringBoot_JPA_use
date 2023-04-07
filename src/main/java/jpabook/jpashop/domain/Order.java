@@ -1,7 +1,9 @@
 package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -11,6 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Setter @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
     @Id @GeneratedValue
@@ -81,6 +84,14 @@ public class Order {
                 .mapToInt(OrderItem::getTotalPrice)
                 .sum();
     }
-
-
 }
+// 기능 설명
+//생성 메서드( createOrder() ): 주문 엔티티를 생성할 때 사용한다. 주문 회원, 배송정보, 주문상품의 정보를 받아서 실제 주문 엔티티를 생성한다.
+
+//주문 취소( cancel() ): 주문 취소시 사용한다. 주문 상태를 취소로 변경하고 주문상품에 주문 취소를 알린다.
+//만약 이미 배송을 완료한 상품이면 주문을 취소하지 못하도록 예외를 발생시킨다.
+
+//전체 주문 가격 조회: 주문 시 사용한 전체 주문 가격을 조회한다.
+//전체 주문 가격을 알려면 각각의 주문상품 가격을 알아야 한다.
+//로직을 보면 연관된 주문상품들의 가격을 조회해서 더한 값을 반환한다.
+//(실무에서는 주로 주문에 전체 주문 가격 필드를 두고 역정규화 한다.)
