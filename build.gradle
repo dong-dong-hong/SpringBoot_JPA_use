@@ -39,6 +39,11 @@ dependencies {
 	testImplementation("org.junit.vintage:junit-vintage-engine") {
 		exclude group : "org.hamcrest", module: "hamcrest-core"
 	}
+	// Junit5 버전과 이전 버전을 함께 사용하기 위한 의존성
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+	testCompileOnly 'junit:junit:4.12'
+	testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.1.0'
 }
 
 tasks.named('test') {
