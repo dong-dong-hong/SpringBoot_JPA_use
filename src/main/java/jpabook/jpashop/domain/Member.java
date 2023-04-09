@@ -13,6 +13,8 @@ public class Member {
     @Id @GeneratedValue
     @Column(name="member_id")
     private Long id;
+
+    private String pw;
     private String name;
 
     @Embedded
