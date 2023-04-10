@@ -2,20 +2,21 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
+import lombok.Setter;
 
 @Embeddable
-@Getter
+@Getter@Setter
 public class Address {
 
     protected Address(){}
 
-    public Address(String city, String stereet, String zipCode) {
+    public Address(String city, String street, String zipCode) {
         this.city = city;
-        this.stereet = stereet;
+        this.street = street;
         this.zipCode = zipCode;
     }
     private String city;
-    private String stereet;
+    private String street;
     private String zipCode;
 }
 // 참고: 값 타입은 변경 불가능하게 설계해야 한다.
