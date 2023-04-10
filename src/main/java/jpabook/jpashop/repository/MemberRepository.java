@@ -28,7 +28,7 @@ public class MemberRepository {
     }
 
     public List<Member> findAll() {
-        return em.createQuery("select m from jpabook.jpashop.domain.Member m where m.name= : name", Member.class)
+        return em.createQuery("select m from jpabook.jpashop.domain.Member m", Member.class)
                 .getResultList();
     }
 

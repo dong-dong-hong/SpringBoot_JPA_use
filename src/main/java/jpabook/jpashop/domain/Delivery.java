@@ -12,6 +12,8 @@ public class Delivery {
     @Column(name = "delibery_id")
     public Long id;
 
+    private String idname;
+
     @OneToOne(mappedBy = "delivery" , fetch = FetchType.LAZY)
     private Order order;
 
