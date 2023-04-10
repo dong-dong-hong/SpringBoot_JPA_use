@@ -32,11 +32,9 @@ public class MemberController {
             return "members/createMemberForm";
         }
 
-        Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
-
+        Address address = new Address(form.getCity(), form.getStreet(), form.getZipCode());
         Member member = new Member();
         member.setName(form.getName());
-//        member.setId(form.getId());
         member.setIdname(form.getIdname());
         member.setPw(form.getPw());
         member.setAddress(address);
@@ -48,7 +46,7 @@ public class MemberController {
     @GetMapping("/members")
     public String list(Model model) {
         List<Member> members = memberService.findMembers();
-        model.addAttribute("members",members);
+        model.addAttribute("members",members); // ctrl + shift + alt + t
         return "members/memberList";
     }
 }
