@@ -26,14 +26,4 @@ public class Book extends Item {
         return book;
     }
 
-    public static Book updateBook(String name, int price, int stockQuantity, String author, String isbn) {
-        Book book = new Book();
-        book.setName(name);
-        book.setPrice(price);
-        book.setStockQuantity(stockQuantity);
-        book.setAuthor(author);
-        book.setIsbn(isbn);
-        return book;
-    }
-
 }
